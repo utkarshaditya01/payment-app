@@ -88,7 +88,7 @@ public class TransactionServiceImpl implements TransactionService{
     public Transaction saveTransactionDTO(int id, TransactionRequestBodyDTO transactionRequestBodyDTO) throws JsonProcessingException{
         Wallet wallet = walletService.getWalletById(id);
 
-        // Transaction only created if balance is more than withdrawl amount.
+        // Transaction only created if balance is more than withdrawal amount.
         if(transactionRequestBodyDTO.getType() == Type.WITHDRAW && wallet.getBalance()<transactionRequestBodyDTO.getAmount()){
             throw new TransactionDeclinedException("Balance : " + wallet.getBalance() + " | Amount: " + transactionRequestBodyDTO.getAmount() + " | Transaction Failed.");
         }
