@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,6 +24,7 @@ import java.time.Duration;
 @EntityScan(basePackages = {"finalgroup.*"})
 @EnableJpaRepositories(basePackages = {"finalgroup.*"})
 @EnableCaching
+@EnableFeignClients
 public class HelloWorldApplication {
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {

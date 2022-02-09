@@ -31,7 +31,6 @@ public class Producer {
         String jsonString = mapper.writeValueAsString(transaction);
         logger.info("Publishing to topic : " + topic);
         kafkaTemplate.send(topic, String.valueOf(transaction.getWallet().getId()), jsonString);
-        return;
     }
 
 }
